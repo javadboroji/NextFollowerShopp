@@ -1,0 +1,11 @@
+.deal-day{
+    background: url('../../../public/bg.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+}
+.slider-perview{
+    padding: 3rem 0 6rem 0;
+}

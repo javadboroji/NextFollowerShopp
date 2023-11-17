@@ -1,0 +1,62 @@
+.product-card:hover{
+    box-shadow: 0 5px 11px rgba(0, 0, 0, 0.14);
+    cursor: pointer;
+}
+.product-card{
+    transition: ease-in-out 0.3s all;
+    position: relative;
+}
+.action-box{
+    visibility: hidden;
+    transition: ease-in-out 0.1s all;
+
+}
+.product-card:hover .action-box{
+   visibility: visible;
+}
+.product-card:hover .price{
+    display: none;
+    
+ }
+.add-card{
+    display: none;
+}
+.product-card:hover .add-card{
+    display: flex;
+    animation: customAni 2s ease 0s  normal none;
+}
+.add-card:hover{
+    color: #11009E;
+}
+.product-card.slider{
+    background: #fff;
+}
+@keyframes customAni {
+    0%,
+    100% {
+      transform: translateX(0%);
+      transform-origin: 50% 50%;
+    }
+  
+    15% {
+      transform: translateX(-30px) rotate(-6deg);
+    }
+  
+    30% {
+      transform: translateX(15px) rotate(6deg);
+    }
+  
+    45% {
+      transform: translateX(-15px) rotate(-3.6deg);
+    }
+  
+    60% {
+      transform: translateX(9px) rotate(2.4deg);
+    }
+  
+    75% {
+      transform: translateX(-6px) rotate(-1.2deg);
+    }
+  }
+  
+  
