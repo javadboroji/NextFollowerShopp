@@ -80,7 +80,7 @@ function DealDay({title}) {
     <div className='deal-day'>
         <p className='py-3 lg:text-4xl text-2xl text-center'>{title}</p>
         <Box>
-            <Counter />
+            
             <Grid container spacing={2} display={'flex'} justifyContent={'center'}>
                 <Grid item xs={8}>
                     <Grid container>
