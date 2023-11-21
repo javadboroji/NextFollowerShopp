@@ -3,6 +3,7 @@ import HeaderCS from './Components/HeaderCS'
 import BannerSlider from './Components/BannerSlider'
 import FeaturedProducts from './Components/FeaturedProducts/FeaturedProducts'
 import DealDay from './Components/DealDay/DealDay'
+import FooterCs from './Components/FooterCs'
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
       <BannerSlider />
       <FeaturedProducts title={'FEATURED PRODUCTS'} badget={"Wonderful gift"}/>
       <DealDay title={'DEAL OF THE DAY'}/>
+      <FooterCs />
     </>
   )
 }
