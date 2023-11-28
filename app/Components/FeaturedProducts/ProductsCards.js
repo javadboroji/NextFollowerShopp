@@ -9,7 +9,16 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
+import ModalCs from "../ModalCs/ModalCs";
 function ProductsCards({ data, type }) {
+  const [open, setOpen] = useState(false)
+  const [product, setProduct] = useState({})
+
+  const addToBascket =(product)=>{
+    setProduct(product); //save product info for show in modal
+    setOpen(true);//show modal
+    console.log(product);
+  }
   return (
     <>
       {type !== "slider" ? (
@@ -61,9 +70,9 @@ function ProductsCards({ data, type }) {
                 width={"100%"}
                 className="add-card "
               >
-                <Link href={"/"} className="text-sm  m-auto font-medium">
+                <button className="text-sm  m-auto font-medium" onClick={()=>addToBascket(product)}>
                   ADD TO CARD{" "}
-                </Link>
+                </button>
               </Box>
             </Box>
           </Grid>
@@ -142,6 +151,7 @@ function ProductsCards({ data, type }) {
           </Swiper>
         </>
       )}
+      <ModalCs open={open} setOpen={setOpen} data={product}/>
     </>
   );
 }

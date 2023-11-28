@@ -53,7 +53,7 @@ function FooterCs() {
               </div>
             </Grid>
             <Grid item xs={12} lg={3}>
-              <ul className="flex flex-col   justify-center items-center p-5">
+              <ul className="flex flex-col   justify-start lg:justify-center items-baseline lg:items-center p-5">
                 <span className="text-white font-semibold text-sm lg:text-2xl">
                   {" "}
                   QuickLink

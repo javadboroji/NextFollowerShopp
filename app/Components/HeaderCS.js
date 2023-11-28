@@ -38,7 +38,7 @@ function HeaderCS() {
       setAnchorElUser(null);
     };
   return (
-    <AppBar position="static" className='header-bg'>
+    <AppBar position="fixed" className='header-bg'>
     <Container maxWidth="xl">
       <Toolbar disableGutters>
         <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
