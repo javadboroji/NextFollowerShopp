@@ -1,5 +1,5 @@
 import React from 'react'
-import HeaderCS from './HeaderCS'
+import HeaderCS from './HeaderCs/HeaderCS'
 import { Box } from '@mui/material'
 
 function LayoutCs({children}) {

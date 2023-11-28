@@ -1,5 +1,5 @@
 "use client"
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -8,45 +8,62 @@ import Typography from "@mui/material/Typography";
 import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
-import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
 import Link from "next/link";
+import HeaderSettings from './HeaderSettings';
+import HeaderNav from './HeaderNav';
 
 const pages = ['about', 'contact', 'Blog','Register/Login'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+
 
 
 function HeaderCS() {
     const [anchorElNav, setAnchorElNav] = useState(null);
-    const [anchorElUser, setAnchorElUser] = useState(null);
+    
+    const [scrollPosition, setScrollPosition] = useState(0);
+
+    useEffect(() => {
+      const handleScroll = () => {
+        const position = window.pageYOffset;
+        setScrollPosition(position);
+      };
   
+      window.addEventListener('scroll', handleScroll, { passive: true });
+  
+      return () => {
+        window.removeEventListener('scroll', handleScroll);
+      };
+    }, [scrollPosition]);
+
+    const navStyle = {
+      transition:' .3s ',
+      opacity: scrollPosition > 80 && scrollPosition < 400 ? 0 :1 ,
+      transform:scrollPosition > 80 && scrollPosition < 400 ? 'translateY(-5rem)' :'translateY(0)' ,
+      background:'#001d3d',
+      boxShadow:scrollPosition > 390? 'rgba(0, 0, 0, 0.1) 0px 0px 20px':'none',
+    };
+
     const handleOpenNavMenu = (event) => {
       setAnchorElNav(event.currentTarget);
     };
-    const handleOpenUserMenu = (event) => {
-      setAnchorElUser(event.currentTarget);
-    };
+   
   
     const handleCloseNavMenu = () => {
       setAnchorElNav(null);
     };
   
-    const handleCloseUserMenu = () => {
-      setAnchorElUser(null);
-    };
+   
   return (
-    <AppBar position="fixed" className='header-bg'>
+    <AppBar position="fixed"  sx={navStyle}>
     <Container maxWidth="xl">
       <Toolbar disableGutters>
         <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
         <Typography
           variant="h6"
           noWrap
-          component="a"
-          href="/"
           sx={{
             mr: 2,
             display: { xs: "none", md: "flex" },
@@ -57,7 +74,7 @@ function HeaderCS() {
             textDecoration: "none",
           }}
         >
-          LOGO
+          <Link href="/"> LOGO</Link>
         </Typography>
 
         <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
@@ -117,46 +134,9 @@ function HeaderCS() {
         >
           LOGO
         </Typography>
-        <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-          {pages.map((page) => (
-            <Button
-              key={page}
-              onClick={handleCloseNavMenu}
-              sx={{ my: 2, color: "white", display: "block" }}
-            >
-             <Link href={`/${page !='Register/Login' ?page :'Register'}`} style={{color:'#fff' ,textDecoration:'none' ,fontSize:'0.9rem' ,fontWeight:'600'}}> {page} </Link>
-            </Button>
-          ))}
-        </Box>
-
+        <HeaderNav handleCloseNavMenu={handleCloseNavMenu} pages={pages}/>
         <Box sx={{ flexGrow: 0 }}>
-          <Tooltip title="Open settings">
-            <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-              <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-            </IconButton>
-          </Tooltip>
-          <Menu
-            sx={{ mt: "45px" }}
-            id="menu-appbar"
-            anchorEl={anchorElUser}
-            anchorOrigin={{
-              vertical: "top",
-              horizontal: "right",
-            }}
-            keepMounted
-            transformOrigin={{
-              vertical: "top",
-              horizontal: "right",
-            }}
-            open={Boolean(anchorElUser)}
-            onClose={handleCloseUserMenu}
-          >
-            {settings.map((setting) => (
-              <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                <Typography textAlign="center">{setting}</Typography>
-              </MenuItem>
-            ))}
-          </Menu>
+            <HeaderSettings />
         </Box>
       </Toolbar>
     </Container>

@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import HeaderCS from './Components/HeaderCS'
+import HeaderCS from './Components/HeaderCs/HeaderCS'
 import BannerSlider from './Components/BannerSlider'
 import FeaturedProducts from './Components/FeaturedProducts/FeaturedProducts'
 import DealDay from './Components/DealDay/DealDay'

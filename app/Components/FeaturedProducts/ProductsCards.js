@@ -28,7 +28,6 @@ function ProductsCards({ data, type }) {
             xs={12}
             md={4}
             lg={3}
-            spacing={2}
             key={product.id}
             marginBottom={"1rem"}
           >
@@ -100,7 +99,7 @@ function ProductsCards({ data, type }) {
             className="mySwiper slider-perview"
           >
           {data?.map((product)=>(
-             <SwiperSlide>
+             <SwiperSlide key={product.id}>
              <Box className="product-card slider p-2">
                <Image
                  src={product.src}
