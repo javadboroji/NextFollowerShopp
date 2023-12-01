@@ -1,12 +1,12 @@
 import React from "react";
-import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import { Grid } from "@mui/material";
 import Image from "next/image";
 import Rate from "../FeaturedProducts/Rate";
 import CloseIcon from "@mui/icons-material/Close";
+import Counter from "../DealDay/Counter";
+import CounterCart from "./CounterCart";
 function ModalCs({ open, setOpen, data }) {
   const style = {
     position: "absolute",
@@ -49,6 +49,7 @@ function ModalCs({ open, setOpen, data }) {
             <Rate value={data.rate} />
             {/* description */}
             <p>{data.description}</p>
+            <CounterCart />
           </Grid>
         </Grid>
       </Modal>

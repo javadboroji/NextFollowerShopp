@@ -16,7 +16,7 @@ function SliderFullWidth({data}) {
             <div className='absolute  left-16 p-5 z-10 jb-top-center'>
               <p className='text-stone-100   p-2 lg:p-5 text-2xl lg:text-4xl text-anmation-global'> {slide.title}</p>
               <p className='text-stone-50   p-2 p-lg-3  text-1xl text-anmation-global'> {slide.subTitle}</p>
-              <button className=' py-2 px-3 py-lg-3 lg:px-5 mx-2 text-sm lg:text-1xl rounded-xl text-stone-100 btn-golbal'> By Now</button>
+              <button className=' py-2 px-6 lg:py-4 lg:px-10 mx-2 text-sm lg:text-1xl rounded-xl text-stone-100 btn-golbal'> By Now</button>
             </div>
           </div>
         </SwiperSlide>)
