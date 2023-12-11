@@ -33,7 +33,7 @@ function ModalCs({ open, setOpen, data }) {
             <CloseIcon sx={{ color: "red" }} />
           </Button>
           <Grid item xs={6}>
-            <Image src={data.src} />
+            <Image src={data.src} alt={"image"}/>
           </Grid>
           <Grid item xs={6}>
             {/* Title */}
@@ -49,7 +49,7 @@ function ModalCs({ open, setOpen, data }) {
             <Rate value={data.rate} />
             {/* description */}
             <p>{data.description}</p>
-            <CounterCart />
+            <CounterCart data={data}/>
           </Grid>
         </Grid>
       </Modal>
