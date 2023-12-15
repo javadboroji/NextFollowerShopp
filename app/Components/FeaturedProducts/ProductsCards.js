@@ -13,7 +13,6 @@ import ModalCs from "../ModalCs/ModalCs";
 function ProductsCards({ data, type }) {
   const [open, setOpen] = useState(false)
   const [product, setProduct] = useState({})
-
   const addToBascket =(product)=>{
     setProduct(product); //save product info for show in modal
     setOpen(true);//show modal
