@@ -6,7 +6,7 @@ import '@/app/Components/FeaturedProducts/style.css';
 
 const getProduct =async()=>{
   const api ="http://localhost:3000/api/products"
-  const res =await fetch(api,{cache: 'no-store' })
+  const res =await fetch(api,{cache: 'no-store',  method: 'GET',})
   if(!res.ok){
     throw new Error('Failed to fetch data  getProduct')
   }

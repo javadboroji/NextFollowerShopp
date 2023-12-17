@@ -78,7 +78,6 @@ const productData = [
         id: "p-9",
         title: "Glory of the Snow",
         description:"we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame bel",
-
         rate: 3,
         price: "90.00",
         priceOff: "100.00",
@@ -87,4 +86,10 @@ const productData = [
   ];
   export async function GET(req,res){
     return NextResponse.json({productData})
+  }
+  export async function POST(req,res){
+    const newProduct = await req.json();
+
+    productData.push(newProduct)
+    return NextResponse.json("true")
   }

@@ -18,11 +18,11 @@ const initialState = {
       },
       productToCart: (state, action) => {
         const index = state.shoppingProducts.findIndex(
-          (product) => product.data.id === action.payload.data.id
-        );
-  
+          (product) => product.id === action.payload.id
+        
+        );  
         if (index !== -1) {
-          state.shoppingProducts[index].counter += action.payload.counter;
+          state.shoppingProducts[index] += action.payload.counter;
         } else {
           state.shoppingProducts.push(action.payload);
         }

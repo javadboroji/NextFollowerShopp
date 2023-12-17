@@ -24,14 +24,13 @@ function Bascket() {
   const reduxShoppingProducts = JSON.parse(
     localStorage.getItem("shoppingCart")
   );
-  const rows = reduxShoppingProducts.map((product) => ({
-    ...product.data,
-    count: product.count,
-  }));
-
-  const [newShoppItems, setNewShoppItems] = useState([])
+  const [rows, setRows] = useState([])
+  
 const RemoveShoppingCart=(params)=>{
-  setNewShoppItems(()=>reduxShoppingProducts.filter((product)=>params.id !== product.id))
+  const updateProdct =reduxShoppingProducts.filter((product)=>params.row.id !== product.id) ;
+  setRows(updateProdct);
+  localStorage.setItem("shoppingCart",JSON.stringify(updateProdct))
+ 
 }
 
   const columns = [
@@ -47,6 +46,8 @@ const RemoveShoppingCart=(params)=>{
     {
       field: "title",
       headerName: "name",
+      minWidth:200,
+      flex:1,
       type: "string",
       editable: false,
       align: "left",
@@ -55,15 +56,19 @@ const RemoveShoppingCart=(params)=>{
       field: "price",
       headerName: "price",
       type: "number",
-      minWidth: 250,
+      minWidth: 200,
+      align:'left',
+      headerAlign: 'left',
       flex: 1,
       editable: false,
     },
     {
-      field: "count",
+      field: "counter",
       headerName: "count",
       type: "number",
       minWidth: 180,
+      align:'left',
+      headerAlign: 'left',
       flex: 1,
       editable: false,
     },
@@ -71,9 +76,14 @@ const RemoveShoppingCart=(params)=>{
       field: "total",
       headerName: "total",
       type: "number",
+      align:'left',
+      headerAlign: 'left',
       minWidth: 180,
       flex: 1,
       editable: false,
+      renderCell:(params)=>{
+        return params.row.price*params.row.counter
+      }
     },
     {
       field: "Remove",
@@ -90,10 +100,30 @@ const RemoveShoppingCart=(params)=>{
       },
     },
   ];
-  useEffect(() => {
-    console.log(newShoppItems)
 
-  }, [newShoppItems])
+/**==============================================
+ *                computing Price For checkout
+ *  
+ *  
+ *=============================================**/
+  const [sumTotal, setSumTotal] = useState([]);
+  const [sumCounter, setSumCounter] = useState([]);
+  const [tax, setTax] = useState("")
+  useEffect(() => {
+    const totalPrice= rows?.map(product =>{return product.price * product.counter} );
+
+    const totalCounter= rows?.map(product =>{return product.counter } );
+
+    setSumTotal(()=>totalPrice.reduce((a,b)=>a+b,0)) // ToDo: sum all Pricee from Rows
+
+    setSumCounter(()=>totalCounter.reduce((a,b)=>a+b,0)) //ToDo :sum all cunter poduct exact in Bascket
+
+    setTax(()=> (sumTotal*0.07 +sumTotal))//ToDo :tax total Price
+
+    setRows(reduxShoppingProducts.map((product) => ({
+      ...product,
+    })));
+  }, [rows])
   
   return (
     <>
@@ -122,20 +152,21 @@ const RemoveShoppingCart=(params)=>{
               <div className="flex">
                 <span className="text-lg font-semibold py-2">
                   {" "}
-                  Cart Totals :
+                   Count :
                 </span>
-                <span></span>
+                <span className="text-lg font-semibold py-2"> {sumCounter}</span>
+              </div>
+              
+              <div className="flex items-center">
+                <span className="text-lg font-semibold py-2"> Total :</span>
+                <span className="text-lg font-semibold py-2"> { sumTotal} $</span>
               </div>
               <div className="flex">
                 <span className="text-lg font-semibold py-2">
                   {" "}
-                  sub Totals :
+                Totals width Tax :
                 </span>
-                <span></span>
-              </div>
-              <div className="flex">
-                <span className="text-lg font-semibold py-2"> Total :</span>
-                <span></span>
+                <span className="text-lg font-semibold py-2">{tax}</span>
               </div>
               <Button
                 variant="outlined"

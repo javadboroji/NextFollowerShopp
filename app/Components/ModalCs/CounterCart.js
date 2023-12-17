@@ -29,7 +29,8 @@ function CounterCart({data}) {
     const btnAddToCArt=()=>{
         const productExists = productCart.some(product => product.id === data.id);
         if(counter >0 && !productExists){
-            dispatch(productToCart({data:data , counter:counter}))
+            const setProductTobascket={...data,counter}
+            dispatch(productToCart(setProductTobascket))
 
         }
     }
