@@ -123,7 +123,7 @@ const RemoveShoppingCart=(params)=>{
     setRows(reduxShoppingProducts.map((product) => ({
       ...product,
     })));
-  }, [rows])
+  }, [])
   
   return (
     <>

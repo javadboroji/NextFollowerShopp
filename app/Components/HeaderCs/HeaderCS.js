@@ -107,7 +107,7 @@ function HeaderCS() {
               display: { xs: "block", md: "none" },
             }}
           >
-            <Link href="/about">4545</Link>
+            <Link href="/about">about</Link>
             {pages.map((page) => (
               <MenuItem key={page} onClick={handleCloseNavMenu}>
                <Link href={`/${page !='Register/Login' ?page :'Register'}`}>{page}</Link>

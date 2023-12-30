@@ -7,14 +7,10 @@ function HeaderNav({handleCloseNavMenu,pages}) {
     <>
     <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
           
-        {pages.map((page) => (
-            <Button
-              key={page}
-              onClick={handleCloseNavMenu}
-              sx={{ my: 2, color: "white", display: "block" }}
-            >
-             <Link href={`/${page !='Register/Login' ?page :'Register'}`} style={{color:'#fff' ,textDecoration:'none' ,fontSize:'0.9rem' ,fontWeight:'600'}}> {page} </Link>
-            </Button>
+        {pages.map((page,i) => (
+        
+             <Link key={i} className='px-6' href={`/${page !='Register/Login' ?page :'Register'}`} style={{color:'#fff' ,textDecoration:'none' ,fontSize:'0.9rem' ,fontWeight:'600'}}> {page} </Link>
+         
           ))}
           </Box>
     </>
