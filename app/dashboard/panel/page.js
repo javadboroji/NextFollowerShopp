@@ -14,9 +14,8 @@ import {
   
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
-import faker from 'faker';
 ChartJS.register(ArcElement, Tooltip, Legend, CategoryScale,
-  LinearScale,
+  LinearScale, 
   PointElement,
   LineElement,
   Title,
