@@ -21,14 +21,14 @@ function Bascket() {
    *
    *
    *========================**/
-  const reduxShoppingProducts = (typeof window !== 'undefined')? JSON.parse( localStorage.getItem("shoppingCart")):[]
+  const reduxShoppingProducts = typeof window !== 'undefined'? JSON.parse(localStorage.getItem("shoppingCart")):[]
 
   const [rows, setRows] = useState([])
   
 const RemoveShoppingCart=(params)=>{
+  if((typeof window !== 'undefined')){
   const updateProdct =reduxShoppingProducts.filter((product)=>params.row.id !== product.id) ;
   setRows(updateProdct);
-  if((typeof window !== 'undefined')){
 
     localStorage.setItem("shoppingCart",JSON.stringify(updateProdct))
   }
