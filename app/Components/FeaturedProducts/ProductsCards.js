@@ -36,6 +36,9 @@ function ProductsCards({ data, type }) {
                 alt={product.title}
                 width={200}
                 height={200}
+                loading="lazy"
+                quality={80}
+
                 style={{ width: "100%" }}
               />
               <ActionButton />
@@ -103,6 +106,8 @@ function ProductsCards({ data, type }) {
                <Image
                  src={product.src}
                  alt={product.title}
+                 loading="lazy"
+                 quality={70}
                  width={200}
                  height={200}
                  style={{ width: "100%" }}

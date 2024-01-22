@@ -1,18 +1,16 @@
-import React from "react";
-import HeaderCS from "../Components/HeaderCs/HeaderCS";
-import FooterCs from "../Components/FooterCs";
+import React from 'react'
+import HeaderCS from '../Components/HeaderCs/HeaderCS'
+import FooterCs from '../Components/FooterCs'
 import { Grid } from "@mui/material";
 import "@/app/globals.css"
-import Image from "next/image";
-import image1 from '@/public/bouquet-flowers-suculents-hands-women-mobile-shooting-from-aside.jpg'
-function About() {
+function Contact() {
   return (
     <>
       <HeaderCS />
       <div className="h-full">
         {/* Banner */}
         <div className="page-banner">
-          <h1 className="text-5xl text-slate-50"> Aboout</h1>
+          <h1 className="text-5xl text-slate-50"> Contact</h1>
         </div>
         <div className="container flex flex-col mx-auto">
         <Grid container spacing={3} my={4} display={'flex'}  alignItems={'center'}>
@@ -26,14 +24,12 @@ function About() {
           </Grid>
           <Grid xs={12} lg={6} >
             <div className="relative overflow-hidden" style={{paddingTop:'66%'}}>
-            <Image src={image1} alt="img" loading="lazy"   placeholder="blur" quality={0} fill style={{position:'absolute' ,top:'50%',left:'50%',transform:'translate(-50%,-50%)' ,width:'100%' ,height:'100%' ,objectFit:"cover"}}/>
             </div>
           </Grid>
         </Grid>
         <Grid container spacing={3} my={4} display={'flex'} alignItems={'center'}>
         <Grid xs={6} >
             <div className="relative overflow-hidden" style={{paddingTop:'66%'}}>
-            <Image src={image1} alt="img" fill loading="lazy"  placeholder="blur" quality={50} style={{position:'absolute' ,top:'50%',left:'50%',transform:'translate(-50%,-50%)' ,width:'100%' ,height:'100%' ,objectFit:"cover"}}/>
             </div>
           </Grid>
           <Grid item xs={6}>
@@ -49,9 +45,9 @@ function About() {
         </div>
       </div>
 
-      <FooterCs />
+      <FooterCs  />
     </>
-  );
+  )
 }
 
-export default About;
+export default Contact
