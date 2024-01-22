@@ -8,6 +8,8 @@ import "@/app/globals.css";
 import EmailIcon from '@mui/icons-material/Email';
 import PhoneIcon from '@mui/icons-material/Phone';
 import HomeIcon from '@mui/icons-material/Home';
+import Image from "next/image";
+import contactImage from '@/public/5124556.jpg'
 function Contact() {
   return (
     <>
@@ -17,25 +19,25 @@ function Contact() {
         <div className="page-banner">
           <h1 className="text-5xl text-slate-50"> Contact</h1>
         </div>
-        <div className="container flex flex-col mx-auto">
+        <div className="container flex flex-col mx-auto px-4">
           <Grid container spacing={2} flex flex-col mx-auto mt={8}>
             <Grid item xs={12} lg={6}>
               <h1 className="text-4xl font-semibold">My Web</h1>
-              <Box display={'flex '} flexDirection={'column'}>
-                <Box flex={1} display={"flex"} justifyContent={"space-between"} my={4}>
+              <Box sx={{display:{lg:'flex' },flexDirection:{lg:'column',xs:'row'} }} >
+                <Box flex={1} className="flex lg:flex-row flex-col" my={4}>
                   <TextField
                     required
                     id="outlined-required"
                     label="FirstName"
                     fullWidth
-                    sx={{margin:'0 1rem 0 0'}}
+                    sx={{margin:{lg:'0 1rem 0 0',xs:'1rem 0 0 0'}}}
                   />
                   <TextField
                     required
                     id="outlined-required"
                     label="LastName"
                     fullWidth
-                    sx={{margin:'0 0 0 1rem'}}
+                    sx={{margin:{lg:'0 0 0 1rem',xs:'1rem 0 0 0'}}}
                   />
                 </Box>
                 <TextField
@@ -43,7 +45,7 @@ function Contact() {
                   id="outlined-required"
                   label="Email"
                   fullWidth
-                  sx={{my:'1rem'}}
+                  sx={{my:{lg:'1rem'}}}
                 />
                 <TextField
                   required
@@ -56,9 +58,12 @@ function Contact() {
               </Box>
             </Grid>
 
-            <Grid item xs={12} lg={6}>
-                <div className="contact-image-box"></div>
-                <div className="bg-gray-100 rounded-lg p-4 flex items-center my-2">
+            <Grid item xs={12} lg={6} className="flex-col lg:flex-row lg:flex ">
+                <div className="contact-image-box flex justify-center lg:w-1/2">
+                    <Image src={contactImage} width={400} height={300} alt="contact"/>
+                </div>
+               <div className="flex flex-col lg:w-1/2">
+               <div className="bg-gray-100 rounded-lg p-4 flex items-center my-2">
                     <div className="bg-blue-400 rounded-full me-4 w-16 h-16 flex justify-center items-center relative">
                         <EmailIcon sx={{color:'#065bd4' ,fontSize:'2rem'}}/>
                     </div>
@@ -85,6 +90,7 @@ function Contact() {
                         <span className="text-sm">Iran Tehran</span>
                     </div>
                 </div>
+               </div>
             </Grid>
           </Grid>
         </div>
