@@ -21,9 +21,8 @@ function Bascket() {
    *
    *
    *========================**/
-  const reduxShoppingProducts = JSON.parse(
-    localStorage.getItem("shoppingCart")
-  );
+  const reduxShoppingProducts = (typeof window !== 'undefined')? JSON.parse( localStorage.getItem("shoppingCart")):[]
+
   const [rows, setRows] = useState([])
   
 const RemoveShoppingCart=(params)=>{
