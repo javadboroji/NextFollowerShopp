@@ -11,7 +11,7 @@ import { InputOutlined, TextFieldsOutlined } from "@mui/icons-material";
 import Image from "next/image";
 import ProductInpForm from "./ProductInpForm";
 import ProductInfo from "./ProductInfo";
-import UploadImage from "./uploadImage";
+import UploadImage from "./UploadImageCs";
 function Products() {
   /**------------------------------------------------------------------------
    *                           Api Fetch

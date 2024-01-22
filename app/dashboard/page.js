@@ -3,7 +3,10 @@ import DashboardLayout from './layout'
 
 function page() {
   return (
-   <></>
+   <>
+   <div>
+    Dashboard
+    </div></>
   )
 }
 
