@@ -28,7 +28,10 @@ function Bascket() {
 const RemoveShoppingCart=(params)=>{
   const updateProdct =reduxShoppingProducts.filter((product)=>params.row.id !== product.id) ;
   setRows(updateProdct);
-  localStorage.setItem("shoppingCart",JSON.stringify(updateProdct))
+  if((typeof window !== 'undefined')){
+
+    localStorage.setItem("shoppingCart",JSON.stringify(updateProdct))
+  }
  
 }
 
