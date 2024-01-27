@@ -1,5 +1,6 @@
 import React from "react";
 import { Grid,Box } from "@mui/material";
+import { fetch, Agent } from 'undici'
 
 import ProductsCards from "./ProductsCards";
 import '@/app/Components/FeaturedProducts/style.css';
@@ -7,7 +8,11 @@ import '@/app/Components/FeaturedProducts/style.css';
 const getProduct =async()=>{
     const baseUrl='http://localhost:3000'
   const api =`${baseUrl}/api/products`
-  const res =await fetch(api,{cache: 'no-store',  method: 'GET',})
+  const res =await fetch(api,{
+      dispatcher: new Agent({
+          keepAliveTimeout: 10,
+          keepAliveMaxTimeout: 10
+      }),cache: 'no-store',  method: 'GET',})
   if(!res.ok){
     throw new Error('Failed to fetch data  getProduct')
   }
