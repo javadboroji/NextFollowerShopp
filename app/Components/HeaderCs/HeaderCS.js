@@ -16,7 +16,7 @@ import Link from "next/link";
 import HeaderSettings from './HeaderSettings';
 import HeaderNav from './HeaderNav';
 
-const pages = [{description:'/about',name:'درباره ما'}, {description:'/contact',name:'تماس با ما'}, {description:"blog",name:'وبلاگ'},{description:'/register',name:'ورود/ثبت نام '}];
+const pages = [{description:'/about',name:'درباره ما'}, {description:'/contact',name:'تماس با ما'}, {description:"blog",name:'وبلاگ'},{description:'/Register',name:'ورود/ثبت نام '}];
 
 
 
