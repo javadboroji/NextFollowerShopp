@@ -38,7 +38,7 @@ const RemoveShoppingCart=(params)=>{
   const columns = [
     {
       field: "image",
-      headerName: "image",
+      headerName: "تصویر",
       width: 180,
       editable: false,
       renderCell: (params) => {
@@ -47,7 +47,7 @@ const RemoveShoppingCart=(params)=>{
     },
     {
       field: "title",
-      headerName: "name",
+      headerName: "نام",
       minWidth:200,
       flex:1,
       type: "string",
@@ -56,7 +56,7 @@ const RemoveShoppingCart=(params)=>{
     },
     {
       field: "price",
-      headerName: "price",
+      headerName: "قیمت",
       type: "number",
       minWidth: 200,
       align:'left',
@@ -66,7 +66,7 @@ const RemoveShoppingCart=(params)=>{
     },
     {
       field: "counter",
-      headerName: "count",
+      headerName: "تعداد",
       type: "number",
       minWidth: 180,
       align:'left',
@@ -76,7 +76,7 @@ const RemoveShoppingCart=(params)=>{
     },
     {
       field: "total",
-      headerName: "total",
+      headerName: "جمع کل",
       type: "number",
       align:'left',
       headerAlign: 'left',
@@ -89,7 +89,7 @@ const RemoveShoppingCart=(params)=>{
     },
     {
       field: "Remove",
-      headerName: "Remove",
+      headerName: "حذف کردن",
       minWidth: 180,
       flex: 1,
       renderCell: (params) => {
@@ -133,7 +133,7 @@ const RemoveShoppingCart=(params)=>{
       <div className="h-full">
         {/* Banner */}
         <div className="page-banner">
-          <h1 className="text-5xl text-slate-50"> Shopping</h1>
+          <h1 className="text-5xl text-slate-50"> سبد خرید</h1>
         </div>
         {/* data grid */}
         <Grid container display={"flex"} justifyContent={"center"} my={"5rem"}>
@@ -143,9 +143,9 @@ const RemoveShoppingCart=(params)=>{
           {/* coupen */}
           <Grid item xs={11} lg={10} display={"flex"} my={"3rem"}>
             <TextField />
-            <Button variant="outlined" sx={{ marginLeft: "1rem" }}>
+            <Button variant="outlined" sx={{ marginLeft: "1rem",fontSize:'20px' }}>
               {" "}
-              Apply coupen
+                اعمال کردن کد تخفیف
             </Button>
           </Grid>
           {/*  checkOut */}
@@ -154,28 +154,29 @@ const RemoveShoppingCart=(params)=>{
               <div className="flex">
                 <span className="text-lg font-semibold py-2">
                   {" "}
-                   Count :
+                   تعداد :
                 </span>
                 <span className="text-lg font-semibold py-2"> {sumCounter}</span>
               </div>
               
               <div className="flex items-center">
-                <span className="text-lg font-semibold py-2"> Total :</span>
+                <span className="text-lg font-semibold py-2"> قیمت کل :</span>
                 <span className="text-lg font-semibold py-2"> { sumTotal} $</span>
               </div>
               <div className="flex">
                 <span className="text-lg font-semibold py-2">
                   {" "}
-                Totals width Tax :
+                قیمت نهایی با مالیت :
                 </span>
                 <span className="text-lg font-semibold py-2">{tax}</span>
               </div>
               <Button
                 variant="outlined"
-                sx={{ marginLeft: "1rem", marginTop: "1rem" }}
+
+                sx={{ marginLeft: "1rem", marginTop: "1rem" ,fontSize:'24px'}}
               >
                 {" "}
-                Proceed To checkouut
+                تسویه حساب
               </Button>
             </div>
           </Grid>

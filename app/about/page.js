@@ -12,36 +12,32 @@ function About() {
       <div className="h-full">
         {/* Banner */}
         <div className="page-banner">
-          <h1 className="text-5xl text-slate-50"> Aboout</h1>
+          <h1 className="text-5xl text-slate-50"> درباه ما</h1>
         </div>
-        <div className="container flex flex-col mx-auto">
-        <Grid container spacing={3} my={4} display={'flex'}  alignItems={'center'}>
-          <Grid item xs={12} lg={6} order={1}>
-              <h2 className="text-4xl font-semibold mb-6 pt-3">BIRTHDAY & GIFTS</h2>
+        <div className="container flex flex-col mx-auto px-4">
+        <Grid container spacing={3} my={4} display={'flex'}  alignItems={'center'} flexDirection={'row-reverse'}>
+          <Grid item xs={12} lg={6}  >
+              <h2 className="text-4xl font-semibold mb-6 pt-3">تولد و هدایا</h2>
               <span className="text-sm font-medium ">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam.
+                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
               </span>
           </Grid>
-          <Grid xs={12} lg={6} >
-            <div className="relative overflow-hidden" style={{paddingTop:'66%'}}>
-            <Image src={image1} alt="img" loading="lazy"   placeholder="blur" quality={0} fill style={{position:'absolute' ,top:'50%',left:'50%',transform:'translate(-50%,-50%)' ,width:'100%' ,height:'100%' ,objectFit:"cover"}}/>
+          <Grid xs={12} lg={6} px={4} >
+            <div className="relative overflow-hidden" style={{paddingTop:'86%'}}>
+            <Image src={image1} alt="img" loading="lazy"   placeholder="blur" quality={0} fill style={{ width:'100%' ,height:'100%' ,objectFit:"cover"}}/>
             </div>
           </Grid>
         </Grid>
-        <Grid container spacing={3} my={4} display={'flex'} alignItems={'center'}>
-        <Grid xs={6} >
+        <Grid container spacing={3} my={4} display={'flex'} alignItems={'center'} sx={{}} flexDirection={'row-reverse'}>
+        <Grid xs={12} lg={6} px={4}>
             <div className="relative overflow-hidden" style={{paddingTop:'66%'}}>
-            <Image src={image1} alt="img" fill loading="lazy"  placeholder="blur" quality={50} style={{position:'absolute' ,top:'50%',left:'50%',transform:'translate(-50%,-50%)' ,width:'100%' ,height:'100%' ,objectFit:"cover"}}/>
+            <Image src={image1} alt="img" fill loading="lazy"  placeholder="blur" quality={50} style={{ width:'100%' ,height:'100%' ,objectFit:"cover"}}/>
             </div>
           </Grid>
-          <Grid item xs={6}>
-              <h2 className="text-4xl font-semibold mb-6 pt-3">WEDDING DAY</h2>
+          <Grid item xs={12} lg={6}>
+              <h2 className="text-4xl font-semibold mb-6 pt-3">روز عروسی</h2>
               <span className="text-sm font-medium ">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam.
+                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
               </span>
           </Grid>
          

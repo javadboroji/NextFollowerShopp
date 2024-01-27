@@ -15,9 +15,15 @@
     --background-end-rgb: 0, 0, 0;
   }
 }
-
+@font-face {
+    font-family: iranSans;
+    src: url('../public/Font/YekanBakhFaNum-Regular.ttf');
+}
 body {
   color: rgb(var(--foreground-rgb));
+    overflow-x: hidden;
+    font-size: 16px;
+    font-family: iranSans !important;
 }
 .register-bg{
   background: url("../public/registerBg.jpg");

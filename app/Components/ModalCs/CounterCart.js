@@ -43,7 +43,7 @@ function CounterCart({data}) {
         <span className='text-xl px-4'>{counter}</span>
         <Button variant="outlined" onClick={(e)=>btnClickHandler(e )} typebtn='decrease' className='text-xl'> - </Button>
     </Box>
-    <Button variant="outlined" onClick={()=>btnAddToCArt( )} typebtn='decrease' className='text-base mt-4'> Add To Cart </Button>
+    <Button variant="outlined" onClick={()=>btnAddToCArt( )} typebtn='decrease' className='text-xl mt-4'>  اضافه کردن به سبدخرید </Button>
     </>
   )
 }

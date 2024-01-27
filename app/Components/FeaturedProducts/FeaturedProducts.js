@@ -22,8 +22,8 @@ export default async function FeaturedProducts({ title, badget }) {
     <Grid container spacing={2} display={"flex"} justifyContent={"center"} mt={'4rem'}>
       <Box width={'100%'}>
         
-        <p className="text-red-600 font-medium lg:text-2xl text-center py-2">{badget}</p>
-        <p className="text-black lg:font-semibold text-2xl lg:text-4xl text-center py-2"> {title}</p>
+        <p className="text-red-600 font-medium text-xs text-center py-2">{badget}</p>
+        <p className="text-black font-semibold  text-2xl lg:text-4xl text-center py-2"> {title}</p>
       </Box>
       <Grid item xs={8} className="mt-5 mb-5">
         <Grid container display={"flex"} justifyContent={"center"}>

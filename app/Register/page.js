@@ -59,7 +59,7 @@ function Login() {
   });
   return (
     <LayoutCs>
-      <div className=" flex   pt-3 register-bg  min-h-screen">
+      <div className=" flex justify-center items-center   pt-3 register-bg  min-h-screen">
         <div className="container  mx-auto py-4 lg:container flex-row items-center justify-center mt-8">
           <Grid
             container
@@ -67,10 +67,10 @@ function Login() {
             className="d-flex items-center justify-center m-auto"
           >
             {!isRegister ? (
-              <Grid item sx={12} lg={4} display={"flex"}>
+              <Grid item sx={12} lg={6} display={"flex"}>
                 <form
                   onSubmit={formik.handleSubmit}
-                  className="lg:border-r-2 lg:border-b-0 lg:pr-4 pb-4 border-b-2"
+                  className="lg:border-r-2 lg:border-b-0 lg:pr-4 pb-4 border-b-2 w-full"
                 >
                   <label htmlFor="email" className="text-white text-1xl">
                     Email Address

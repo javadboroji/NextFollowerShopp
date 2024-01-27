@@ -6,16 +6,18 @@ import DealDay from "./Components/DealDay/DealDay";
 import FooterCs from "./Components/FooterCs";
 import { Provider } from "react-redux";
 import { store } from "./store/store";
+
 export default function Home() {
+
   return (
     <>
         <HeaderCS />
         <BannerSlider />
         <FeaturedProducts
-          title={"FEATURED PRODUCTS"}
-          badget={"Wonderful gift"}
+          title={"محصولات ویژه"}
+          badget={"هدیه فوق العاده"}
         />
-        <DealDay title={"DEAL OF THE DAY"} />
+        <DealDay title={"تخفیفات روز"} />
         <FooterCs />
     </>
   );

@@ -5,13 +5,42 @@ import Link from "next/link";
 import Head from "next/head";
 import { Provider } from "react-redux";
 import { store } from "./store/store";
+ import {createTheme} from "@mui/material/styles";
+ import  createGlobalStyle  from '@emotion/react';
+ import { ThemeProvider } from '@emotion/react';
+ import stylisRTL from 'stylis-plugin-rtl';
 const inter = Inter({ subsets: ["latin"] });
 
 
-
+ // const globalStyle = createGlobalStyle();
+ // globalStyle.addGlobal(stylisRTL.create());
 export default function RootLayout({ children }) {
+
+    const theme = createTheme({
+        direction: 'rtl',
+        typography: {
+            fontFamily: 'iranSans',
+        },
+        components: {
+            MuiInputBase: {
+                styleOverrides: {
+                    root: {
+                        direction: 'rtl',
+                    },
+                },
+            },
+            MuiInput: {
+                styleOverrides: {
+                    root: {
+                        fontFamily: 'iranSans',
+                    },
+                },
+            },
+        },
+    })
+
   return (
-    <html lang="en">
+    <html lang="en" dir='rtl'>
        
       <Head>  
       <link
@@ -21,10 +50,17 @@ export default function RootLayout({ children }) {
       </Head>
   
       <body className={inter.className}>
-      <Provider store={store}>
-        {children}
-        </Provider>
-        </body>
+      <ThemeProvider theme={theme}>
+
+
+              <Provider store={store}>
+                  {children}
+              </Provider>
+
+
+      </ThemeProvider>
+      </body>
+
     </html>
   );
 }

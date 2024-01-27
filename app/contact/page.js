@@ -17,25 +17,26 @@ function Contact() {
       <div className="h-full">
         {/* Banner */}
         <div className="page-banner">
-          <h1 className="text-5xl text-slate-50"> Contact</h1>
+          <h1 className="text-5xl text-slate-50"> تماس با ما</h1>
         </div>
         <div className="container flex flex-col mx-auto px-4">
           <Grid container spacing={2} flex flex-col mx-auto mt={8}>
             <Grid item xs={12} lg={6}>
-              <h1 className="text-4xl font-semibold">My Web</h1>
+              <h1 className="text-4xl font-semibold">سایت گل</h1>
               <Box sx={{display:{lg:'flex' },flexDirection:{lg:'column',xs:'row'} }} >
                 <Box flex={1} className="flex lg:flex-row flex-col" my={4}>
                   <TextField
+
                     required
                     id="outlined-required"
-                    label="FirstName"
+                    label="نام"
                     fullWidth
                     sx={{margin:{lg:'0 1rem 0 0',xs:'1rem 0 0 0'}}}
                   />
                   <TextField
                     required
                     id="outlined-required"
-                    label="LastName"
+                    label="نام خانوادگی"
                     fullWidth
                     sx={{margin:{lg:'0 0 0 1rem',xs:'1rem 0 0 0'}}}
                   />
@@ -43,18 +44,18 @@ function Contact() {
                 <TextField
                   required
                   id="outlined-required"
-                  label="Email"
+                  label="ایمیل"
                   fullWidth
                   sx={{my:{lg:'1rem'}}}
                 />
                 <TextField
                   required
                   id="outlined-required"
-                  label="message"
+                  label="پیام"
                   fullWidth
                   sx={{my:'1rem'}}
                 />
-                <Button variant="outlined" className="px-12 py-3     mb-6 w-1/3">Send</Button>
+                <Button variant="outlined" className="px-10 py-3  text-xl font-bold    mb-6 w-1/3">ارسال</Button>
               </Box>
             </Grid>
 
@@ -68,7 +69,7 @@ function Contact() {
                         <EmailIcon sx={{color:'#065bd4' ,fontSize:'2rem'}}/>
                     </div>
                     <div className="flex flex-col">
-                        <span className="font-semibold text-2xl">Email</span>
+                        <span className="font-semibold text-2xl">ایمیل</span>
                         <span className="text-sm">info@gmail.com</span>
                     </div>
                 </div>
@@ -77,7 +78,7 @@ function Contact() {
                         <PhoneIcon sx={{color:'#065bd4' ,fontSize:'2rem'}}/>
                     </div>
                     <div className="flex flex-col">
-                        <span className="font-semibold text-2xl">Phone</span>
+                        <span className="font-semibold text-2xl">شماره تماس</span>
                         <span className="text-sm">099652365</span>
                     </div>
                 </div>
@@ -86,8 +87,8 @@ function Contact() {
                         <HomeIcon sx={{color:'#065bd4' ,fontSize:'2rem'}}/>
                     </div>
                     <div className="flex flex-col">
-                        <span className="font-semibold text-2xl">Addres</span>
-                        <span className="text-sm">Iran Tehran</span>
+                        <span className="font-semibold text-2xl">آدرس</span>
+                        <span className="text-sm">تهران ایران </span>
                     </div>
                 </div>
                </div>

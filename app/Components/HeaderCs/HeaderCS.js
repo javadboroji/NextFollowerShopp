@@ -16,7 +16,7 @@ import Link from "next/link";
 import HeaderSettings from './HeaderSettings';
 import HeaderNav from './HeaderNav';
 
-const pages = ['about', 'contact', 'Blog','Register/Login'];
+const pages = [{description:'/about',name:'درباره ما'}, {description:'/contact',name:'تماس با ما'}, {description:"blog",name:'وبلاگ'},{description:'/register',name:'ورود/ثبت نام '}];
 
 
 
@@ -108,9 +108,9 @@ function HeaderCS() {
             }}
           >
             <Link href="/about">about</Link>
-            {pages.map((page) => (
-              <MenuItem key={page} onClick={handleCloseNavMenu}>
-               <Link href={`/${page !='Register/Login' ?page :'Register'}`}>{page}</Link>
+            {pages.map((page,i) => (
+              <MenuItem key={i} onClick={handleCloseNavMenu}>
+               <Link  href={page.description}>{page.name}</Link>
 
               </MenuItem>
             ))}

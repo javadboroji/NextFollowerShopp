@@ -9,9 +9,9 @@ function ActionButton() {
   return (
    <>
     <div className='absolute flex flex-col top-5 right-2 action-box '>
-    <div className='bg-black p-2 flex justify-center mb-2  rounded-full'> <RemoveRedEyeIcon color='primary' fontSize='1rem'/> </div>
-    <div className='bg-black p-2 flex justify-center mb-2  rounded-full'> <CachedIcon color='primary' fontSize='1rem'/> </div>
-    <div className='bg-black p-2 flex justify-center mb-2  rounded-full'> <FavoriteIcon color='primary' fontSize='1rem'/> </div>
+    <div className='bg-b2-500 p-2 flex justify-center mb-2  rounded-full'> <RemoveRedEyeIcon sx={{color:'#fff'}} fontSize='1rem'/> </div>
+    <div className='bg-b2-500  p-2 flex justify-center mb-2  rounded-full'> <CachedIcon sx={{color:'#fff'}} fontSize='1rem'/> </div>
+    <div className='bg-b2-500  p-2 flex justify-center mb-2  rounded-full'> <FavoriteIcon sx={{color:'#fff'}} fontSize='1rem'/> </div>
    </div>
    </>
   )

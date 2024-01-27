@@ -13,7 +13,7 @@ function DealDay({title}) {
     const productData = [
         {
           id: "p-1",
-          title: "Flowers daisy pink stick",
+          title: "گل رز سفید",
           rate: 4,
           price: "80.00",
           priceOff: "90.00",
@@ -21,7 +21,7 @@ function DealDay({title}) {
         },
         {
           id: "p-2",
-          title: "Blossom bouquet flower",
+          title: "گل شکوفه",
           rate: 2,
           price: "30.00",
           priceOff: "35.00",
@@ -29,7 +29,7 @@ function DealDay({title}) {
         },
         {
           id: "p-3",
-          title: "Rose bouquet white",
+          title: "دسته گل",
           rate: 1,
           price: "50.00",
           priceOff: "55.00",
@@ -37,7 +37,7 @@ function DealDay({title}) {
         },
         {
           id: "p-4",
-          title: "Glory of the Snow",
+          title: "گل رز",
           rate: 5,
           price: "90.00",
           priceOff: "100.00",
@@ -45,7 +45,7 @@ function DealDay({title}) {
         },
         {
             id: "p-6",
-            title: "Flowers daisy pink stick",
+            title: "گل رز سفید",
             rate: 4,
             price: "80.00",
             priceOff: "90.00",
@@ -53,7 +53,7 @@ function DealDay({title}) {
           },
           {
             id: "p-7",
-            title: "Blossom bouquet flower",
+            title: "گل شکوفه",
             rate: 2,
             price: "30.00",
             priceOff: "35.00",
@@ -61,7 +61,7 @@ function DealDay({title}) {
           },
           {
             id: "p-8",
-            title: "Rose bouquet white",
+            title: "گل رز",
             rate: 1,
             price: "50.00",
             priceOff: "55.00",
@@ -69,7 +69,7 @@ function DealDay({title}) {
           },
           {
             id: "p-9",
-            title: "Glory of the Snow",
+            title: "دسته گل",
             rate: 3,
             price: "90.00",
             priceOff: "100.00",

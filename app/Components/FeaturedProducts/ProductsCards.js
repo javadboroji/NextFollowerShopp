@@ -72,7 +72,7 @@ function ProductsCards({ data, type }) {
                 className="add-card "
               >
                 <button className="text-sm  m-auto font-medium" onClick={()=>addToBascket(product)}>
-                  ADD TO CARD{" "}
+                 اضافه کردن به سبد خرید
                 </button>
               </Box>
             </Box>
@@ -143,7 +143,7 @@ function ProductsCards({ data, type }) {
                  className="add-card "
                >
                  <Link href={"/"} className="text-sm  m-auto font-medium">
-                   ADD TO CARD{" "}
+                اضافه کردن به سبد خرید
                  </Link>
                </Box>
              </Box>

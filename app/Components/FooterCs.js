@@ -9,22 +9,22 @@ function FooterCs() {
   const quickLink = [
     {
       id: "f-1",
-      title: "about",
+      title: "درباره ما",
       url: "/about",
     },
     {
       id: "f-2",
-      title: "contact",
+      title: "تماس باما",
       url: "/contact",
     },
     {
       id: "f-3",
-      title: "register",
+      title: "ثبت نام",
       url: "/register",
     },
     {
       id: "f-4",
-      title: "blog",
+      title: "وبلاگ",
       url: "/blog",
     },
   ];
@@ -37,11 +37,11 @@ function FooterCs() {
               <div className="flex flex-col p-5">
                 <h2 className="text-white font-semibold text-sm lg:text-2xl">
                   {" "}
-                  MyWeb
+                  سایت گل
                 </h2>
                 <span className="text-white mt-5">
-                  Lorem Khaled Ipsum is a major key to success. To be successful
-                  you’ve got to work hard you’ve got to make it.
+                  لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ
+                  لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ
                 </span>
                 <div className="flex my-5">
                   {" "}
@@ -56,7 +56,7 @@ function FooterCs() {
               <ul className="flex flex-col   justify-start lg:justify-center items-baseline lg:items-center p-5">
                 <span className="text-white font-semibold text-sm lg:text-2xl">
                   {" "}
-                  QuickLink
+                  دسترسی سریع
                 </span>
                 {quickLink.map((link) => {
                   return (
@@ -76,20 +76,20 @@ function FooterCs() {
             <Grid item xs={12} lg={4}>
               <div className="p-5">
                 <span className="text-white font-semibold text-sm lg:text-2xl">
-                  See Information
+                 تماس باما
                 </span>
                 <div className="flex flex-col">
                   <div className="flex py-3">
                     <span className="text-white text-lg font-bold">
                       {" "}
-                      Phone:
+                      شماره تماس:
                     </span>
                     <span className="text-white px-2">09392409359</span>
                   </div>
                   <div className="flex py-3">
                     <span className="text-white text-lg font-bold">
                       {" "}
-                      Email:
+                      ایمیل:
                     </span>
                     <span className="text-white px-2">
                       javadboroji2222@gmail.com
@@ -98,9 +98,9 @@ function FooterCs() {
                   <div className="flex py-3">
                     <span className="text-white text-lg font-bold">
                       {" "}
-                      Address:
+                      آدرس:
                     </span>
-                    <span className="text-white px-2">Theran</span>
+                    <span className="text-white px-2">تهران</span>
                   </div>
                 </div>
               </div>
