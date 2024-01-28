@@ -19,14 +19,14 @@ function Contact() {
         <div className="page-banner">
           <h1 className="text-5xl text-slate-50"> تماس با ما</h1>
         </div>
-        <div className="container flex flex-col mx-auto px-4">
+        <div className="container flex flex-col mx-auto px-4 py-8">
           <Grid container spacing={2} flex flex-col mx-auto mt={8}>
             <Grid item xs={12} lg={6}>
               <h1 className="text-4xl font-semibold">سایت گل</h1>
               <Box sx={{display:{lg:'flex' },flexDirection:{lg:'column',xs:'row'} }} >
                 <Box flex={1} className="flex lg:flex-row flex-col" my={4}>
                   <TextField
-
+                  
                     required
                     id="outlined-required"
                     label="نام"
