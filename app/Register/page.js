@@ -30,8 +30,8 @@ function Login() {
     },
 
     validationSchema: Yup.object({
-      password: Yup.string().required(),
-      email: Yup.string().email("Invalid email address").required("Required"),
+      password: Yup.string().required('اجباری'),
+      email: Yup.string().email("آدرس ایمیل وارد شده درست نمی باشد").required("اجباری"),
     }),
 
     onSubmit: async (values) => {
@@ -73,7 +73,7 @@ function Login() {
                   className="lg:border-r-2 lg:border-b-0 lg:pr-4 pb-4 border-b-2 w-full"
                 >
                   <label htmlFor="email" className="text-white text-1xl">
-                    Email Address
+                    ایمیل
                   </label>
 
                   <input
@@ -92,7 +92,7 @@ function Login() {
                     </p>
                   ) : null}
                   <label htmlFor="lastName" className="text-white text-1xl">
-                    password{" "}
+                    پسورد{" "}
                   </label>
 
                   <input
@@ -113,18 +113,18 @@ function Login() {
 
                   <div className="flex justify-between">
                     <button
-                      className="border-amber-600 hover:bg-yellow-400 text-white font-semibold  py-2 my-2 px-4 border   rounded"
+                      className="border-amber-600 hover:bg-yellow-400 text-white font-semibold  py-2 my-2 px-16 border   rounded"
                       type="submit"
                     >
                       {" "}
-                      Login
+                      ورود
                     </button>
                     <button
                       className="border-0 bg-transparent text-white "
                       onClick={() => registerRun()}
                     >
                       {" "}
-                      Register
+                      ثبت نام
                     </button>
                   </div>
                 </form>
@@ -137,7 +137,7 @@ function Login() {
             <Grid item sx={12} lg={4} display={"flex"}>
               <h1 className="text-white text-5xl">
                 {" "}
-                Me <span className="text-yellow-400"> WebSite</span>
+                سایت <span className="text-yellow-400"> گل</span>
               </h1>
             </Grid>
           </Grid>

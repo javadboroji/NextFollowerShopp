@@ -41,18 +41,18 @@ function Register({ setIsRegister }) {
     validationSchema: Yup.object({
       firstName: Yup.string()
 
-        .max(15, "Must be 15 characters or less")
+        .max(15, "حداکثر باید 15 کارکتر باشد")
 
-        .required("Required"),
+        .required("اجباری"),
 
       lastName: Yup.string()
 
-        .max(20, "Must be 20 characters or less")
+        .max(20, "حداکثر 20کارکتر مجاز می باشد")
 
-        .required("Required"),
+        .required("اجباری"),
 
-      email: Yup.string().email("Invalid email address").required("Required"),
-      password: Yup.string().required(),
+      email: Yup.string().email("ایمیل واردشده درست نمی باشد").required("اجباری"),
+      password: Yup.string().required(" اجباری"),
     }),
 
     onSubmit: async (values) => {
@@ -89,7 +89,7 @@ function Register({ setIsRegister }) {
            className="lg:border-r-2 lg:border-b-0 lg:pr-4 pb-4 border-b-2 w-full"
        >
          <label htmlFor="firstName" className="text-white text-1xl">
-           First Name
+          نام 
          </label>
 
          <input
@@ -109,7 +109,7 @@ function Register({ setIsRegister }) {
          ) : null}
 
          <label htmlFor="lastName" className="text-white text-1xl">
-           Last Name
+           نام خانوادگی
          </label>
 
          <input
@@ -129,7 +129,7 @@ function Register({ setIsRegister }) {
          ) : null}
 
          <label htmlFor="email" className="text-white text-1xl">
-           Email Address
+          ایمیل
          </label>
 
          <input
@@ -146,7 +146,7 @@ function Register({ setIsRegister }) {
              <p className="text-red-500 text-xs italic">{formik.errors.email}</p>
          ) : null}
          <label htmlFor="lastName" className="text-white text-1xl">
-           password{" "}
+           پسورد{" "}
          </label>
 
          <input
@@ -167,18 +167,18 @@ function Register({ setIsRegister }) {
 
          <div className="flex justify-between">
            <button
-               className="border-amber-600 hover:bg-yellow-400 text-white font-semibold  py-2 my-2 px-4 border   rounded"
+               className="border-amber-600 hover:bg-yellow-400 text-white font-semibold  py-2 my-2 px-16 border   rounded"
                type="submit"
            >
              {" "}
-             Register
+             ثبت  نام
            </button>
            <button
                className="border-0 bg-transparent text-white "
                onClick={() => loginRun()}
            >
              {" "}
-             Login
+             ورود
            </button>
          </div>
        </form>
@@ -187,7 +187,7 @@ function Register({ setIsRegister }) {
      <Stack spacing={2} sx={{ width: '100%' }} position={'absolute'}>
        <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
          <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
-           Register Sucess!
+          ثبت نام با موفقیت انجام شد
          </Alert>
        </Snackbar>
 
