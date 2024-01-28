@@ -10,11 +10,8 @@ const initialState = {
     name: 'shopingSlice',
     initialState,
     reducers: {
-      increment:(state)=>{
-        state.basketCounter +=1
-      },
-      decrement:(state)=>{
-        state.basketCounter -=1
+      counterBasket:(state,action)=>{
+        state.basketCounter=action.payload
       },
       productToCart: (state, action) => {
         const index = state.shoppingProducts.findIndex(
@@ -31,6 +28,6 @@ const initialState = {
     },
   })
 
-  export const { increment ,decrement,productToCart } = shopingSlice.actions
+  export const { counterBasket,productToCart } = shopingSlice.actions
 
 export default shopingSlice.reducer

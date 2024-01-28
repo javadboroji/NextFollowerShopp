@@ -29,7 +29,7 @@ function ModalCs({ open, setOpen, data }) {
       >
         <Grid container sx={style}>
             {/* close btn Modal */}
-          <Button className="absolute right-0 top-4" onClick={()=>handleClose()}>
+          <Button sx={{position:'absolute'}} className=" left-0 top-4" onClick={()=>handleClose()}>
             <CloseIcon sx={{ color: "red" }} />
           </Button>
           <Grid item xs={6}>

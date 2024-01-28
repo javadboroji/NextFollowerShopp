@@ -75,7 +75,7 @@ function HeaderCS() {
             textDecoration: "none",
           }}
         >
-          <Link href="/"> LOGO</Link>
+          <Link href="/">گل</Link>
         </Typography>
 
         <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
