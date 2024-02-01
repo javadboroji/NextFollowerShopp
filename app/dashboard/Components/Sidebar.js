@@ -7,7 +7,7 @@ import LanguageIcon from '@mui/icons-material/Language';
 import { Typography } from '@mui/material';
 import Link from 'next/link';
 function Sidebar() {
-    const sidebar=[{id:'side-77' ,name:'WebSite' ,icon:<LanguageIcon />,url:'/'},{id:'side-5', name:'panel',icon:<GridViewOutlinedIcon/>,url:'panel'},{id:'side-1', url:'users',name:'users',icon:<PersonOutlineOutlinedIcon/>},{id:'side-2',url:'settings', name:'settings',icon:<SettingsOutlinedIcon/>},{id:'side-3',url:'products', name:'products',icon:<ProductionQuantityLimitsOutlinedIcon/>}]
+    const sidebar=[{id:'side-77' ,name:'وب سایت' ,icon:<LanguageIcon />,url:'/'},{id:'side-5', name:'داشبورد',icon:<GridViewOutlinedIcon/>,url:'panel'},{id:'side-1', url:'users',name:'کاربران',icon:<PersonOutlineOutlinedIcon/>},{id:'side-2',url:'settings', name:'تنظیمات',icon:<SettingsOutlinedIcon/>},{id:'side-3',url:'products', name:'محصولات',icon:<ProductionQuantityLimitsOutlinedIcon/>}]
   return (
     <div className='min-h-full'>
         <ul className='list-none p-0'>
