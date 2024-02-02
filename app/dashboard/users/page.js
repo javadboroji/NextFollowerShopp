@@ -1,11 +1,14 @@
 'use client'
-import React from "react";
+import React, { useState } from "react";
 import DashboardLayout from "../layout";
 import uuid from "react-uuid";
-import { Grid } from "@mui/material";
+import { Box, Button, Grid } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
 import useSWR from "swr";
 import Image from "next/image";
+import { GrEdit } from "react-icons/gr";
+import { MdDeleteSweep } from "react-icons/md";
+import EditModalHandler from "./EditModalHandler";
 
 function Users() {
   const userColumn = [
@@ -90,7 +93,27 @@ function Users() {
       flex: 1,
       editable: false,
     },
+    {
+      field: "action",
+      headerName: "عملیات",
+      align: "left",
+      headerAlign: "left",
+      minWidth: 100,
+      flex: 1,
+      editable: false,
+      renderCell:(params)=>{
+        return <Box width={'100%'} display={'flex'} > 
+          <Button onClick={()=>EditHandler(params.row)}><GrEdit   fontSize={18} color="blue" className=""/></Button>
+          <Button> <MdDeleteSweep  fontSize={18} color="red"/> </Button>
+
+        </Box>
+      }
+    },
   ];
+  const EditHandler=(rowData)=>{
+    setOpen(true);
+    setEditData(rowData)
+  }
 
 
   const api = "http://localhost:3000/api/user";
@@ -98,6 +121,11 @@ function Users() {
 
   const{data}=useSWR("dashboard/users",fetcher);
   const userRow =data?data.defultUsers:[];
+  //modal state mangment
+  const [open, setOpen] = React.useState(false);
+
+  //modal data
+  const [editData, setEditData] = useState(null)
   return (
     <>
       <Grid container spacing={2} display={"flex"} justifyContent={"center"} my={"1rem"}>
@@ -105,6 +133,7 @@ function Users() {
           <DataGrid sx={{height:'25rem'}} rows={userRow} columns={userColumn} hideFooter={true} />
         </Grid>
       </Grid>
+      <EditModalHandler open={open} setOpen={setOpen} data={editData}/>
     </>
   );
 }
