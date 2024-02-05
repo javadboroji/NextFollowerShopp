@@ -35,7 +35,7 @@ function Users() {
       editable: false,
       renderCell:(params)=>{
         const imageSrc=params.row.Profile;
-        return <Image src={imageSrc} width={60} height={60}/>
+        return <Image src={imageSrc} width={60} height={60} alt="image"/>
       }
     },
     {

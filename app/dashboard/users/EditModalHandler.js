@@ -3,7 +3,7 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
-import { useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 import { Grid, MenuItem, TextField } from "@mui/material";
 const style = {
   position: "absolute",
@@ -18,23 +18,20 @@ const style = {
 
 function EditModalHandler({ data, open, setOpen }) {
   const handleClose = () => setOpen(false);
+
   const {
     register,
+    control,
     setValue,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm({});
 
   const onSubmit = (data) => console.log(data);
 
-  console.log(errors);
-
   useEffect(() => {
     console.log(data);
-     setValue(
-   [ {    userName: data?.userName || ""}]
-    )
-  }, [open]);
+  }, [open, data]);
 
   return (
     <div>
@@ -48,65 +45,104 @@ function EditModalHandler({ data, open, setOpen }) {
           <form onSubmit={handleSubmit(onSubmit)}>
             <Grid container spacing={2} alignItems={"center"}>
               <Grid item xs={12} lg={4}>
-                <TextField
-                  fullWidth
-                  type="text"
-                  label="نام کاربری"
-                  variant="outlined"
-                  {...register("userName")}
+                <Controller
+                  name="userName"
+                  control={control}
+                  defaultValue={data?.userName}
+                  render={({ field }) => (
+                    <TextField
+                      {...field}
+                      fullWidth
+                      type="text"
+                      label="نام کاربری"
+                      variant="outlined"
+                    />
+                  )}
                 />
               </Grid>
               <Grid item xs={12} lg={4}>
-                <TextField
-                  fullWidth
-                  type="text"
-                  label="Email"
-                  {...register("Email", {
-                    required: true,
-                    pattern: /^\S+@\S+$/i,
-                  })}
+                <Controller
+                  name="email"
+                  control={control}
+                  defaultValue={data?.email}
+                  render={({ field }) => (
+                    <TextField
+                      {...field}
+                      fullWidth
+                      type="text"
+                      label="ایمیل"
+                      {...register("email", {
+                        required: true,
+                        pattern: /^\S+@\S+$/i,
+                      })}
+                    />
+                  )}
                 />
               </Grid>
               <Grid item xs={12} lg={4}>
-                <TextField
-                  fullWidth
-                  type="tel"
-                  label="Mobile number"
-                  {...register("Mobile number", {
-                    required: true,
-                    minLength: 6,
-                    maxLength: 12,
-                  })}
+                <Controller
+                  name="phone"
+                  control={control}
+                  defaultValue={data?.phone}
+                  render={({ field }) => (
+                    <TextField
+                      {...field}
+                      fullWidth
+                      type="tel"
+                      label="شماره تماس"
+                      {...register("phone", {
+                        required: true,
+                        minLength: 6,
+                        maxLength: 12,
+                      })}
+                    />
+                  )}
                 />
               </Grid>
               <Grid item xs={12} lg={4}>
-                <TextField
-                  fullWidth
-                  type="text"
-                  label="role"
-                  {...register("role", {})}
+                <Controller
+                  name="role"
+                  control={control}
+                  defaultValue={data?.role}
+                  render={({ field }) => (
+                    <TextField
+                      {...field}
+                      fullWidth
+                      type="text"
+                      label="role"
+                      {...register("role", {})}
+                    />
+                  )}
                 />
               </Grid>
-              <Grid xs={12} lg={4}>
-                <TextField
-                  select
-                  fullWidth
-                  label="وضعیت"
-                  variant="filled"
-                  {...register("status")}
-                >
-                  <MenuItem key={"فعال"} value="فعال">
-                    فعال
-                  </MenuItem>
-                  <MenuItem key={"غیرفعال"} value="غیرفعال">
-                    غیرفعال
-                  </MenuItem>
-                  <MenuItem key={"درانتظارتایید"} value="درانتظارتایید">
-                    درانتظارتایید
-                  </MenuItem>
-                </TextField>
+              <Grid item xs={12} lg={4}>
+                <Controller
+                  name="role"
+                  control={control}
+                  defaultValue={data?.status}
+                  render={({ field }) => (
+                    <TextField
+                      {...field}
+                      select
+                      fullWidth
+                      label="وضعیت"
+                      variant="filled"
+                      {...register("status")}
+                    >
+                      <MenuItem key={"فعال"} value="فعال">
+                        فعال
+                      </MenuItem>
+                      <MenuItem key={"غیرفعال"} value="غیرفعال">
+                        غیرفعال
+                      </MenuItem>
+                      <MenuItem key={"درانتظارتایید"} value="درانتظارتایید">
+                        درانتظارتایید
+                      </MenuItem>
+                    </TextField>
+                  )}
+                />
               </Grid>
-              <Grid xs={12} lg={4}>
+              <Grid item xs={12} lg={4}>
                 <button className=" banner-slider-btn relative py-5 my-4 px-12 lg:py-6 lg:px-24 mx-2 text-sm lg:text-1xl lg:font-bold rounded-xl text-stone-100 btn-golbal">
                   <span
                     className={
