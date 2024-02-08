@@ -115,8 +115,9 @@ function Users() {
     setEditData(rowData)
   }
 
-
-  const api = "http://localhost:3000/api/user";
+  const BaseUrl=process.env['NEXT_PUBLIC_BASE_URL'];
+  console.log(BaseUrl);
+  const api = `${BaseUrl}/api/user`;
   const fetcher=async()=>await fetch(api).then((res)=>res.json());
 
   const{data}=useSWR("dashboard/users",fetcher);

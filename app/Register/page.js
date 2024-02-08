@@ -9,9 +9,18 @@ import LayoutCs from "../Components/LayoutCs";
 import { logging } from "@/next.config";
 import { useRouter } from "next/navigation";
 import Register from "./Register";
+import { Alert, Snackbar, Stack, Typography } from "@mui/material";
 
 const api_url = "/api/register/rouute";
 function Login() {
+  const [open, setOpen] = React.useState(false);
+  const [transition, setTransition] = React.useState(undefined);
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+
   const router = useRouter();
 
   const [isRegister, setIsRegister] = useState(false);
@@ -41,14 +50,17 @@ function Login() {
           body: JSON.stringify(values),
         };
 
-        const res = await fetch("/api/register", api_req_options);
+        const res = await fetch("/api/login", api_req_options);
         if (!res.ok) {
           throw new Error("Network response was not ok.");
         }
 
         const dataBack = await res.json();
-        if (dataBack === "true") {
-          router.push("/dashboard");
+        if (dataBack) {
+          setOpen(true);
+          setTimeout(() => {
+            router.push("/dashboard");
+          }, 5000);
         } else {
           console.error("Unexpected response from the server:", dataBack);
         }
@@ -143,6 +155,13 @@ function Login() {
           </Grid>
         </div>
       </div>
+      <Stack spacing={2} sx={{ width: '100%' }} position={'absolute'}>
+       <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+         <Alert onClose={handleClose} severity="success" sx={{ width: '100%' ,padding:'1rem'}}>
+            <Typography fontSize={'24'}>  با موفقیت انجام شد</Typography>
+         </Alert>
+       </Snackbar>
+       </Stack>
     </LayoutCs>
   );
 }
