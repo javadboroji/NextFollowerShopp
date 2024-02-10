@@ -17,6 +17,7 @@
     "@mui/styled-engine-sc": "^6.0.0-alpha.5",
     "@mui/x-data-grid": "^6.18.2",
     "@reduxjs/toolkit": "^2.0.1",
+    "axios": "^1.6.7",
     "formik": "^2.4.5",
     "json-server": "^1.0.0-alpha.23",
     "jss": "^10.10.0",

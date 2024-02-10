@@ -9,17 +9,17 @@ import LayoutCs from "../Components/LayoutCs";
 import { logging } from "@/next.config";
 import { useRouter } from "next/navigation";
 import Register from "./Register";
-import { Alert, Snackbar, Stack, Typography } from "@mui/material";
+import { Alert, Backdrop, CircularProgress, Snackbar, Stack, Typography } from "@mui/material";
+import { log } from "next/dist/server/typescript/utils";
 
 const api_url = "/api/register/rouute";
 function Login() {
   const [open, setOpen] = React.useState(false);
-  const [transition, setTransition] = React.useState(undefined);
+  const [toastMessag, settoastMessag] = useState({})
 
   const handleClose = () => {
     setOpen(false);
   };
-
 
   const router = useRouter();
 
@@ -39,8 +39,10 @@ function Login() {
     },
 
     validationSchema: Yup.object({
-      password: Yup.string().required('اجباری'),
-      email: Yup.string().email("آدرس ایمیل وارد شده درست نمی باشد").required("اجباری"),
+      password: Yup.string().required("اجباری"),
+      email: Yup.string()
+        .email("آدرس ایمیل وارد شده درست نمی باشد")
+        .required("اجباری"),
     }),
 
     onSubmit: async (values) => {
@@ -50,19 +52,30 @@ function Login() {
           body: JSON.stringify(values),
         };
 
-        const res = await fetch("/api/login", api_req_options);
+        const res = await fetch(`${process.env['NEXT_PUBLIC_BASE_URL']}/api/login`, api_req_options);
+        console.log(res);
         if (!res.ok) {
           throw new Error("Network response was not ok.");
         }
 
         const dataBack = await res.json();
-        if (dataBack) {
+        console.log(dataBack);
+        if (dataBack.register===true) {
+          settoastMessag({
+            msg:'با موفقیت انجام شد',
+            type:'success'
+          })
           setOpen(true);
           setTimeout(() => {
             router.push("/dashboard");
-          }, 5000);
+          }, 3000);
         } else {
           console.error("Unexpected response from the server:", dataBack);
+          settoastMessag({
+            msg:'رمز عبور یا ایمیل شما اشتباه می باشد',
+            type:'error'
+          })
+          setOpen(true);
         }
       } catch (error) {
         console.error("Error occurred during registration:", error);
@@ -71,6 +84,13 @@ function Login() {
   });
   return (
     <LayoutCs>
+      <Backdrop
+        sx={{ color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 1 }}
+        open={open}
+        
+      >
+        <CircularProgress color="inherit" />
+      </Backdrop>
       <div className=" flex justify-center items-center   pt-3 register-bg  min-h-screen">
         <div className="container  mx-auto py-4 lg:container flex-row items-center justify-center mt-8">
           <Grid
@@ -155,13 +175,17 @@ function Login() {
           </Grid>
         </div>
       </div>
-      <Stack spacing={2} sx={{ width: '100%' }} position={'absolute'}>
-       <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
-         <Alert onClose={handleClose} severity="success" sx={{ width: '100%' ,padding:'1rem'}}>
-            <Typography fontSize={'24'}>  با موفقیت انجام شد</Typography>
-         </Alert>
-       </Snackbar>
-       </Stack>
+      <Stack spacing={2} sx={{ width: "100%" }} position={"absolute"}>
+        <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+          <Alert
+            onClose={handleClose}
+            severity={toastMessag.type}
+            sx={{ width: "100%", padding: "1rem" }}
+          >
+            <Typography fontSize={"24"}> {toastMessag.msg}</Typography>
+          </Alert>
+        </Snackbar>
+      </Stack>
     </LayoutCs>
   );
 }
