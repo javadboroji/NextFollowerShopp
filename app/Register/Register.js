@@ -16,7 +16,6 @@ function Register({ setIsRegister }) {
     return <Slide {...props} direction="up" />;
   }
   const [open, setOpen] = React.useState(false);
-  const [transition, setTransition] = React.useState(undefined);
 
   const handleClose = () => {
     setOpen(false);
@@ -29,9 +28,7 @@ function Register({ setIsRegister }) {
 
   const formik = useFormik({
     initialValues: {
-      firstName: "",
-
-      lastName: "",
+      userName: "",
 
       email: "",
 
@@ -39,17 +36,12 @@ function Register({ setIsRegister }) {
     },
 
     validationSchema: Yup.object({
-      firstName: Yup.string()
+      userName: Yup.string()
 
         .max(15, "حداکثر باید 15 کارکتر باشد")
 
         .required("اجباری"),
 
-      lastName: Yup.string()
-
-        .max(20, "حداکثر 20کارکتر مجاز می باشد")
-
-        .required("اجباری"),
 
       email: Yup.string().email("ایمیل واردشده درست نمی باشد").required("اجباری"),
       password: Yup.string().required(" اجباری"),
@@ -59,10 +51,13 @@ function Register({ setIsRegister }) {
       try {
         const api_req_options = {
           method: "POST",
+          headers: {
+            'Content-Type': 'application/json',
+         },
           body: JSON.stringify(values),
         };
 
-        const res = await fetch("/api/register", api_req_options);
+        const res = await fetch("http://localhost:3001/users", api_req_options);
         if (!res.ok) {
           throw new Error("Network response was not ok.");
         }
@@ -88,39 +83,26 @@ function Register({ setIsRegister }) {
            onSubmit={formik.handleSubmit}
            className="lg:border-r-2 lg:border-b-0 lg:pr-4 pb-4 border-b-2 w-full"
        >
-         <label htmlFor="firstName" className="text-white text-1xl">
+         <label htmlFor="userName" className="text-white text-1xl">
           نام 
          </label>
 
          <input
              className="bg-gray-200 mb-3 bg-transparent text-white appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none  focus:border-purple-500"
-             id="firstName"
-             name="firstName"
+             id="userName"
+             name="userName"
              type="text"
              onChange={formik.handleChange}
              onBlur={formik.handleBlur}
-             value={formik.values.firstName}
+             value={formik.values.userName}
          />
 
-         {formik.touched.firstName && formik.errors.firstName ? (
+         {formik.touched.userName && formik.errors.userName ? (
              <p className="text-red-500 text-xs italic">
-               {formik.errors.firstName}
+               {formik.errors.userName}
              </p>
          ) : null}
 
-         <label htmlFor="lastName" className="text-white text-1xl">
-           نام خانوادگی
-         </label>
-
-         <input
-             className="bg-gray-200 mb-3 bg-transparent appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none text-white  focus:border-purple-500"
-             id="lastName"
-             name="lastName"
-             type="text"
-             onChange={formik.handleChange}
-             onBlur={formik.handleBlur}
-             value={formik.values.lastName}
-         />
 
          {formik.touched.lastName && formik.errors.lastName ? (
              <p className="text-red-500 text-xs italic">
