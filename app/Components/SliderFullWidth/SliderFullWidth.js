@@ -13,7 +13,7 @@ function SliderFullWidth({data}) {
         {data?.map((slide)=>  
          <SwiperSlide key={slide.id}> 
           <div className='slider-box'>
-            <Image src={slide.src} loading='lazy'  placeholder="blur" priority={false}  quality={50} alt={'slider'} className='filter slider-filter'/>
+            <Image src={slide.src} loading='eager'     quality={50} alt={'slider'} className='filter slider-filter'/>
             <div className='absolute p-5 z-10 jb-top-center' style={{right:'8rem'}}>
               <p className='text-stone-100   p-2 lg:p-5 text-2xl lg:text-4xl lg:font-semibold text-anmation-global'> {slide.title}</p>
               <p className='text-stone-50   p-2 p-lg-3  text-1xl text-anmation-global'> {slide.subTitle}</p>

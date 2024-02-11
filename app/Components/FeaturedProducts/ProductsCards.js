@@ -98,7 +98,7 @@ function ProductsCards({ data, type }) {
                   spaceBetween: 30,
                 },}
               }
-            className="mySwiper slider-perview"
+            className="mySwiper slider-perview "
           >
           {data?.map((product)=>(
              <SwiperSlide key={product.id}>

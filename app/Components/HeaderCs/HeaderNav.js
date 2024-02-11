@@ -9,7 +9,7 @@ function HeaderNav({handleCloseNavMenu,pages}) {
     <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
           
         {pages.map((page,i) => (
-             <Link key={i} className='px-6' href={page.description} style={{color:'#fff' ,textDecoration:'none' ,fontSize:'0.9rem' ,fontWeight:'600'}}> {page.name} </Link>
+             <Link key={i} className='px-6' href={page.description} replace prefetch={false} style={{color:'#fff' ,textDecoration:'none' ,fontSize:'0.9rem' ,fontWeight:'600'}}> {page.name} </Link>
 
           ))}
           </Box>
