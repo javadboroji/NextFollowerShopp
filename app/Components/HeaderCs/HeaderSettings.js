@@ -10,7 +10,7 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import Link from "next/link";
 import Badge from "@mui/material/Badge";
 import { useSelector } from "react-redux";
-const settings = ["Profile", "Account", "Dashboard", "Logout"];
+const settings = ["پروفایل کاربری", "داشبورد", "خروج"];
 
 function HeaderSettings() {
   const [anchorElUser, setAnchorElUser] = useState(null); 

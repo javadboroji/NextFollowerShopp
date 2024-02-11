@@ -23,7 +23,7 @@ function Products() {
   const columns = [
     {
       field: "image",
-      headerName: "image",
+      headerName: "تصویر",
       width: 180,
       editable: false,
       renderCell: (params) => {
@@ -39,7 +39,7 @@ function Products() {
     },
     {
       field: "title",
-      headerName: "name",
+      headerName: "نام محصول",
       minWidth: 200,
       flex: 1,
       type: "string",
@@ -48,7 +48,7 @@ function Products() {
     },
     {
       field: "price",
-      headerName: "price",
+      headerName: "قیمت",
       type: "number",
       minWidth: 200,
       align: "left",
@@ -58,7 +58,7 @@ function Products() {
     },
     {
       field: "counter",
-      headerName: "count",
+      headerName: "تعداد",
       type: "number",
       minWidth: 180,
       align: "left",
@@ -68,7 +68,7 @@ function Products() {
     },
     {
       field: "Remove",
-      headerName: "Remove",
+      headerName: "عملیات",
       minWidth: 180,
       flex: 1,
       renderCell: (params) => {
@@ -87,8 +87,12 @@ function Products() {
   ];
   const rowData=data?data.productData:[]
   const [rows, setRows] = useState(rowData)
+
+  const RemoveShoppingCart=(row)=>{
+    console.log(row);
+  }
 useEffect(() => {
- console.log(data?.productData)
+
 }, [rows])
 
 
@@ -109,7 +113,7 @@ useEffect(() => {
           <ProductInpForm  setRows={setRows} rows={rows}/>
         </Grid>
         <Grid item xs={11} lg={10} minHeight={"20rem"}>
-          <DataGrid rows={rows} columns={columns} />
+          <DataGrid rows={rows} columns={columns} hideFooter />
         </Grid>
       </Grid>
     </>

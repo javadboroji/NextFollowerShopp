@@ -4,7 +4,7 @@ import NotificationsOutlinedIcon from '@mui/icons-material/NotificationsOutlined
 function HeaderContent() {
   return (
     <div className='bg-slate-950 p-5 flex justify-between' >
-        <span className='text-white'> HeaderContent</span>
+        <span className='text-white'> عنوان</span>
         <NotificationsOutlinedIcon  sx={{color:'#fff'}}/>
     </div>
   )
