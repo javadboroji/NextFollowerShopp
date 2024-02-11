@@ -37,11 +37,11 @@ function Sidebar() {
   return (
     <div className="min-h-full">
       <ul className="list-none p-0">
-        {sidebar.map((side) => {
+        {sidebar.map((side,i) => {
           return (
-            <Link href={side.url} className="text-sm lg:text-lg">
+            <Link  href={side.url}    key={side.id} className="text-sm lg:text-lg">
               <li
-                key={side.id}
+             
                 className="py-3 lg:py-5 px-3 text-white flex items-center hover:bg-orange-500"
               >
                 {side.icon}
